@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style-prijava.css" />
+  </head>
+
+  <body>
+    <form id="prijava" action="prijava.php" method="POST">
+      <h1>Prakse</h1>
+      <input
+        class="k_ime"
+        type="text"
+        name="k_ime"
+        required
+        autofocus
+        pattern=".{8,}"
+        title="Najmanje 8 karaktera"
+        placeholder="Korisnicko ime"
+      /><br />
+
+      <input
+        class="k_lozinka"
+        type="password"
+        name="k_lozinka"
+        required
+        pattern=".{8,}"
+        title="Najmanje 8 karaktera"
+        placeholder="Lozinku"
+      /><br />
+      <button type="submit">Prijavi se</button>
+      <p>
+        Nemate nalog?
+        <button type="button" id="prikazi">Registruj se</button>
+      </p>
+    </form>
+    <form
+      id="registracija"
+      action="registracija.php"
+      method="POST"
+      style="display: none"
+    >
+      <h2>Registracija korisnika</h2>
+      <label>Unesite korisnicko ime:</label><br />
+      <input
+        class="inputPopUp"
+        type="text"
+        name="k_ime"
+        required
+        autofocus
+        pattern=".{8,}"
+        title="Najmanje 8 karaktera"
+        placeholder="Unesite korisnicko ime"
+      /><br />
+
+      <label>Unesite email:</label><br />
+      <input
+        class="inputPopUp"
+        type="email"
+        name="k_email"
+        required
+        placeholder="Unesite email"
+      /><br />
+
+      <label>Unesite lozinku:</label><br />
+      <input
+        class="inputPopUp"
+        type="password"
+        name="k_lozinka1"
+        required
+        pattern=".{8,}"
+        title="Najmanje 8 karaktera"
+        placeholder="Unesite lozinku"
+      /><br />
+
+      <label>Ponovo unesite lozinku:</label><br />
+      <input
+        class="inputPopUp"
+        type="password"
+        name="k_lozinka2"
+        required
+        pattern=".{8,}"
+        title="Najmanje 8 karaktera"
+        placeholder="Ponovite lozinku"
+      /><br />
+
+      <label>Izaberite tip korisnika:</label><br />
+      <select name="k_tip" required>
+        <option value="" disabled selected>Izaberite opciju</option>
+        <option value="kandidat">Kandidat</option>
+        <option value="firma">Firma</option></select
+      ><br /><br />
+      <button type="submit">Registruj se</button>
+      <p>
+        Već imate nalog?
+        <button type="submit" id="sakrij">Prijavi se</button>
+      </p>
+    </form>
+  </body>
+  <script>
+    document.getElementById("prikazi").addEventListener("click", function () {
+      document.getElementById("prijava").style.display = "none";
+      document.getElementById("registracija").style.display = "block";
+    });
+
+    document.getElementById("sakrij").addEventListener("click", function () {
+      document.getElementById("registracija").style.display = "none";
+      document.getElementById("prijava").style.display = "block";
+    });
+  </script>
+</html>
